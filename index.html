@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Gestión de Tienda - Información</title>
+    <title>SaiTeck - Sistema de Gestión para Negocios</title>
     <style>
         * {
             margin: 0;
@@ -11,873 +11,1105 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary: #667eea;
+            --secondary: #764ba2;
+            --success: #48bb78;
+            --dark: #2d3748;
+            --light: #f7fafc;
+            --gray: #718096;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #2d3748;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            color: var(--dark);
         }
 
         /* Header */
         header {
-            background: #2d3748;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: white;
             padding: 20px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-            position: sticky;
+            position: fixed;
+            width: 100%;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        .header-content {
+        nav {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0 20px;
         }
 
         .logo {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: bold;
-            color: #667eea;
         }
 
-        nav a {
+        .nav-links a {
             color: white;
             text-decoration: none;
-            margin-left: 25px;
-            font-weight: 500;
-            transition: color 0.3s;
+            margin-left: 30px;
+            transition: opacity 0.3s;
         }
 
-        nav a:hover {
-            color: #667eea;
-        }
-
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
+        .nav-links a:hover {
+            opacity: 0.8;
         }
 
         /* Hero Section */
         .hero {
-            background: white;
-            border-radius: 20px;
-            padding: 60px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 150px 20px 100px;
             text-align: center;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-            margin-bottom: 40px;
         }
 
         .hero h1 {
             font-size: 48px;
-            color: #2d3748;
             margin-bottom: 20px;
+            animation: fadeInDown 1s;
         }
 
         .hero p {
             font-size: 20px;
-            color: #4a5568;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            animation: fadeInUp 1s;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeIn 1.5s;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 15px 40px;
-            border: none;
-            border-radius: 30px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            transition: transform 0.3s, box-shadow 0.3s;
+            background: white;
+            color: var(--primary);
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 10px 30px rgba(255,255,255,0.3);
         }
 
-        /* Cards */
-        .card {
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
             background: white;
-            border-radius: 15px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            color: var(--primary);
         }
 
-        .card h2 {
-            color: #2d3748;
-            font-size: 32px;
+        /* Features Section */
+        .features {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
             margin-bottom: 20px;
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 15px;
+            color: var(--dark);
         }
 
-        .card h3 {
-            color: #4a5568;
-            font-size: 24px;
-            margin-top: 30px;
-            margin-bottom: 15px;
+        .section-subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: var(--gray);
+            margin-bottom: 60px;
         }
 
-        .card p {
-            color: #4a5568;
-            margin-bottom: 15px;
-            font-size: 16px;
-        }
-
-        .card ul {
-            margin-left: 30px;
-            margin-bottom: 20px;
-        }
-
-        .card li {
-            margin-bottom: 12px;
-            color: #4a5568;
-        }
-
-        /* Features Grid */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
+            gap: 40px;
         }
 
         .feature-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            text-align: center;
             padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-            transition: transform 0.3s;
+            border-radius: 12px;
+            transition: all 0.3s;
         }
 
         .feature-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
         .feature-icon {
             font-size: 48px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .feature-card h3 {
-            color: white;
-            font-size: 22px;
-            margin: 15px 0;
+            margin-bottom: 15px;
+            color: var(--dark);
         }
 
-        .feature-card p {
-            color: rgba(255,255,255,0.9);
-            font-size: 15px;
+        /* Pricing Section */
+        .pricing {
+            padding: 80px 20px;
+            background: var(--light);
         }
 
-        /* Contact Form */
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
+        .pricing-toggle {
+            text-align: center;
+            margin-bottom: 40px;
         }
 
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #2d3748;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
+        .toggle-btn {
+            background: white;
+            border: 2px solid var(--primary);
+            padding: 10px 30px;
+            border-radius: 25px;
             font-size: 16px;
-            font-family: inherit;
-            transition: border-color 0.3s;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: all 0.3s;
         }
 
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #667eea;
+        .toggle-btn.active {
+            background: var(--primary);
+            color: white;
         }
 
-        .form-group textarea {
-            resize: vertical;
-            min-height: 150px;
-        }
-
-        /* Pricing */
-        .pricing-grid {
+        .pricing-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
-            margin: 40px 0;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .pricing-card {
             background: white;
-            border-radius: 15px;
+            border-radius: 16px;
             padding: 40px 30px;
-            text-align: center;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.3s;
+            position: relative;
         }
 
         .pricing-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
         }
 
         .pricing-card.featured {
-            border: 3px solid #667eea;
-            position: relative;
+            border: 3px solid var(--primary);
             transform: scale(1.05);
         }
 
-        .pricing-badge {
-            background: #667eea;
+        .pricing-card.featured::before {
+            content: 'MÁS POPULAR';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            padding: 5px 15px;
+            padding: 5px 20px;
             border-radius: 20px;
             font-size: 12px;
             font-weight: bold;
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
         }
 
-        .pricing-card h3 {
+        .plan-name {
             font-size: 24px;
-            color: #2d3748;
-            margin-bottom: 15px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--dark);
         }
 
-        .price {
+        .plan-price {
             font-size: 48px;
             font-weight: bold;
-            color: #667eea;
-            margin: 20px 0;
+            color: var(--primary);
+            margin-bottom: 10px;
         }
 
-        .price span {
+        .plan-price span {
             font-size: 20px;
-            color: #718096;
+            color: var(--gray);
         }
 
-        .pricing-features {
+        .plan-billing {
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+
+        .plan-features {
             list-style: none;
-            margin: 30px 0;
+            margin-bottom: 30px;
             text-align: left;
         }
 
-        .pricing-features li {
-            padding: 10px 0;
+        .plan-features li {
+            padding: 12px 0;
+            border-bottom: 1px solid #e2e8f0;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .plan-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .plan-features li.disabled {
+            color: var(--gray);
+            opacity: 0.5;
+        }
+
+        .plan-features li.disabled::before {
+            content: '✗';
+            color: #cbd5e0;
+        }
+
+        .btn-plan {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-plan-free {
+            background: #e2e8f0;
+            color: var(--dark);
+        }
+
+        .btn-plan-basic {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-plan-pro {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .btn-plan:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Addons Section */
+        .addons {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .addons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .addon-card {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            padding: 30px;
+            border-radius: 12px;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s;
+        }
+
+        .addon-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .addon-icon {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .addon-price {
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--primary);
+            margin: 15px 0;
+        }
+
+        /* Comparison Table */
+        .comparison {
+            padding: 80px 20px;
+            background: var(--light);
+        }
+
+        .comparison-table {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .comparison-table td {
+            padding: 15px;
+            text-align: center;
             border-bottom: 1px solid #e2e8f0;
         }
 
-        .pricing-features li:before {
-            content: "✓ ";
-            color: #48bb78;
-            font-weight: bold;
-            margin-right: 10px;
+        .comparison-table tr:hover {
+            background: #f7fafc;
+        }
+
+        .comparison-table td:first-child {
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .check-icon {
+            color: var(--success);
+            font-size: 20px;
+        }
+
+        .cross-icon {
+            color: #cbd5e0;
+            font-size: 20px;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .faq-item {
+            background: var(--light);
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background: #edf2f7;
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 500px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            opacity: 0.9;
         }
 
         /* Footer */
         footer {
-            background: #2d3748;
+            background: var(--dark);
             color: white;
-            padding: 40px 20px 20px;
-            margin-top: 60px;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 30px;
-        }
-
-        .footer-section h4 {
-            color: #667eea;
-            margin-bottom: 20px;
-            font-size: 20px;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 12px;
-        }
-
-        .footer-section a {
-            color: #a0aec0;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-section a:hover {
-            color: #667eea;
-        }
-
-        .copyright {
+            padding: 40px 20px;
             text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid #4a5568;
-            color: #a0aec0;
         }
 
-        /* Smooth scroll */
-        html {
-            scroll-behavior: smooth;
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero {
-                padding: 40px 20px;
-            }
-
             .hero h1 {
                 font-size: 32px;
             }
 
-            .card {
-                padding: 25px;
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section-title {
+                font-size: 28px;
             }
 
             .pricing-card.featured {
                 transform: scale(1);
             }
+
+            .nav-links {
+                display: none;
+            }
+
+            .comparison-table {
+                overflow-x: auto;
+            }
+
+            .plan-price {
+                font-size: 36px;
+            }
+        }
+
+        /* Badge */
+        .badge {
+            display: inline-block;
+            padding: 5px 15px;
+            background: var(--success);
+            color: white;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .savings {
+            background: #fef5e7;
+            color: #f39c12;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            font-weight: 600;
         }
     </style>
 </head>
 <body>
     <!-- Header -->
     <header>
-        <div class="header-content">
-            <div class="logo">🏪 Mi Tienda</div>
-            <nav>
+        <nav>
+            <div class="logo">🪐 SaiTeck</div>
+            <div class="nav-links">
                 <a href="#inicio">Inicio</a>
-                <a href="#funcionalidades">Funcionalidades</a>
-                <a href="#planes">Planes</a>
-                <a href="#contacto">Contacto</a>
-            </nav>
-        </div>
+                <a href="#caracteristicas">Características</a>
+                <a href="#precios">Precios</a>
+                <a href="#comparacion">Comparación</a>
+                <a href="#faq">FAQ</a>
+            </div>
+        </nav>
     </header>
 
     <!-- Hero Section -->
-    <div class="container">
-        <div class="hero" id="inicio">
-            <h1>Sistema de Gestión de Tienda</h1>
-            <p>La solución completa para administrar tu negocio de manera eficiente</p>
-            <a href="#planes" class="btn-primary">Ver Planes</a>
+    <section class="hero" id="inicio">
+        <div class="container">
+            <h1>Controla tu Negocio con Inteligencia</h1>
+            <p>El sistema de gestión más completo para tiendas pequeñas y medianas.<br>Inventario, ventas, proveedores y reportes en tiempo real.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">Probar 14 Días GRATIS</a>
+                <a href="#precios" class="btn btn-secondary">Ver Planes</a>
+            </div>
         </div>
+    </section>
 
-        <!-- Funcionalidades -->
-        <div class="card" id="funcionalidades">
-            <h2>🚀 Funcionalidades del Sistema</h2>
-            <p>Nuestro sistema ofrece todas las herramientas que necesitas para gestionar tu tienda de manera profesional:</p>
-
+    <!-- Features Section -->
+    <section class="features" id="caracteristicas">
+        <div class="container">
+            <h2 class="section-title">¿Por qué elegir SaiTeck?</h2>
+            <p class="section-subtitle">Todo lo que necesitas para administrar tu negocio en un solo lugar</p>
+            
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">📦</div>
-                    <h3>Gestión de Productos</h3>
-                    <p>Registra, edita y elimina productos. Control completo de inventario con alertas de stock bajo.</p>
+                    <h3>Control de Inventario</h3>
+                    <p>Gestiona productos, precios y stock en tiempo real. Alertas automáticas de productos bajos.</p>
                 </div>
-
+                
                 <div class="feature-card">
                     <div class="feature-icon">💰</div>
-                    <h3>Sistema de Ventas</h3>
-                    <p>Proceso de venta rápido e intuitivo. Cálculo automático de cambio y generación de tickets.</p>
+                    <h3>Ventas Rápidas</h3>
+                    <p>Sistema POS intuitivo con cálculo automático de cambio y generación de tickets.</p>
                 </div>
-
+                
                 <div class="feature-card">
                     <div class="feature-icon">🚚</div>
                     <h3>Gestión de Proveedores</h3>
-                    <p>Controla tus proveedores y programa visitas automáticas con frecuencias personalizables.</p>
+                    <p>Programa visitas automáticas y crea listas de pedidos recurrentes.</p>
                 </div>
-
+                
                 <div class="feature-card">
                     <div class="feature-icon">📊</div>
-                    <h3>Reportes y Análisis</h3>
-                    <p>Visualiza tus ventas con gráficos detallados. Reportes diarios, semanales, mensuales y anuales.</p>
+                    <h3>Reportes Inteligentes</h3>
+                    <p>Análisis de ganancia real, rankings de productos y gráficas interactivas.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Multiplataforma</h3>
+                    <p>Accede desde cualquier dispositivo: PC, tablet o móvil. Sincronización automática.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔐</div>
+                    <h3>Multi-Usuario</h3>
+                    <p>Crea perfiles de empleados con permisos personalizados y PIN de seguridad.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="precios">
+        <div class="container">
+            <h2 class="section-title">Planes que se Adaptan a Ti</h2>
+            <p class="section-subtitle">Elige el plan perfecto para tu negocio</p>
+            
+            <div class="pricing-toggle">
+                <button class="toggle-btn active" onclick="togglePricing('monthly')">Mensual</button>
+                <button class="toggle-btn" onclick="togglePricing('annual')">Anual <span style="color: var(--success); font-weight: bold;">(Ahorra 10%)</span></button>
+            </div>
+
+            <div class="pricing-cards">
+                <!-- Plan Gratis -->
+                <div class="pricing-card">
+                    <div class="plan-name">Prueba Gratuita</div>
+                    <div class="plan-price">
+                        $0
+                        <span>/mes</span>
+                    </div>
+                    <div class="plan-billing">14 días - Sin tarjeta</div>
+                    
+                    <ul class="plan-features">
+                        <li>1 Tienda</li>
+                        <li>1 Usuario (solo admin)</li>
+                        <li>50 Productos máximo</li>
+                        <li>100 Ventas/mes</li>
+                        <li>Reportes básicos</li>
+                        <li>Múltiples dispositivos</li>
+                        <li class="disabled">Escáner de códigos</li>
+                        <li class="disabled">Listas de proveedores</li>
+                        <li class="disabled">Soporte prioritario</li>
+                    </ul>
+                    
+                    <button class="btn-plan btn-plan-free">Comenzar Prueba</button>
                 </div>
 
-                <div class="feature-card">
-                    <div class="feature-icon">📈</div>
-                    <h3>Dashboard Inteligente</h3>
-                    <p>Panel de control con estadísticas en tiempo real de tu negocio.</p>
+                <!-- Plan Básico -->
+                <div class="pricing-card">
+                    <div class="plan-name">Plan Básico</div>
+                    <div class="plan-price monthly-price">
+                        $299
+                        <span>/mes</span>
+                    </div>
+                    <div class="plan-price annual-price" style="display: none;">
+                        $2,690
+                        <span>/año</span>
+                    </div>
+                    <div class="plan-billing monthly-billing">Facturado mensualmente</div>
+                    <div class="plan-billing annual-billing" style="display: none;">
+                        <div class="savings">✨ Ahorras $898 al año</div>
+                    </div>
+                    
+                    <ul class="plan-features">
+                        <li>1 Tienda</li>
+                        <li><strong>3 Usuarios</strong> (1 admin + 2 empleados)</li>
+                        <li>Productos ilimitados</li>
+                        <li>Ventas ilimitadas</li>
+                        <li>Control de inventario</li>
+                        <li>Sistema POS completo</li>
+                        <li>Gestión de proveedores</li>
+                        <li>Reportes básicos</li>
+                        <li>Múltiples dispositivos</li>
+                        <li>Sincronización en tiempo real</li>
+                        <li>Soporte por email</li>
+                        <li class="disabled">Escáner de códigos</li>
+                        <li class="disabled">Listas de proveedores</li>
+                        <li class="disabled">Múltiples tiendas</li>
+                    </ul>
+                    
+                    <button class="btn-plan btn-plan-basic">Comenzar Ahora</button>
                 </div>
 
-                <div class="feature-card">
-                    <div class="feature-icon">💾</div>
-                    <h3>Almacenamiento en la Nube</h3>
-                    <p>El sistema almacena la información de forma segura en la nube, permitiendo acceso en todo momento desde cualquier dispositivo con conexión a Internet.</p>
+                <!-- Plan Profesional -->
+                <div class="pricing-card featured">
+                    <div class="plan-name">Plan Profesional</div>
+                    <div class="plan-price monthly-price">
+                        $799
+                        <span>/mes</span>
+                    </div>
+                    <div class="plan-price annual-price" style="display: none;">
+                        $7,190
+                        <span>/año</span>
+                    </div>
+                    <div class="plan-billing monthly-billing">Facturado mensualmente</div>
+                    <div class="plan-billing annual-billing" style="display: none;">
+                        <div class="savings">✨ Ahorras $2,398 al año</div>
+                    </div>
+                    
+                    <ul class="plan-features">
+                        <li><strong>2 Tiendas incluidas</strong></li>
+                        <li><strong>10 Usuarios</strong> (5 por tienda)</li>
+                        <li>Productos ilimitados</li>
+                        <li>Ventas ilimitadas</li>
+                        <li>Todo del Plan Básico +</li>
+                        <li><strong>📷 Escáner de códigos de barras</strong></li>
+                        <li><strong>📋 Listas de pedidos por proveedor</strong></li>
+                        <li><strong>📊 Gráficas interactivas avanzadas</strong></li>
+                        <li><strong>🏪 Gestión multi-tienda</strong></li>
+                        <li><strong>🔄 Transferencias entre tiendas</strong></li>
+                        <li><strong>📈 Reportes consolidados</strong></li>
+                        <li><strong>📞 Soporte telefónico prioritario</strong></li>
+                        <li><strong>🎓 Capacitación mensual en vivo</strong></li>
+                    </ul>
+                    
+                    <button class="btn-plan btn-plan-pro">Elegir Profesional</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Addons Section -->
+    <section class="addons">
+        <div class="container">
+            <h2 class="section-title">Complementos Adicionales</h2>
+            <p class="section-subtitle">Expande las capacidades de tu plan según lo necesites</p>
+            
+            <div class="addons-grid">
+                <div class="addon-card">
+                    <div class="addon-icon">👤</div>
+                    <h3>Usuario Adicional</h3>
+                    <div class="addon-price">$49<span style="font-size: 18px; color: var(--gray);">/mes</span></div>
+                    <p>Agrega empleados extra a cualquier plan</p>
+                    <ul style="list-style: none; margin-top: 15px; color: var(--gray);">
+                        <li>✓ Permisos personalizables</li>
+                        <li>✓ PIN de seguridad propio</li>
+                        <li>✓ Acceso multi-dispositivo</li>
+                        <li>✓ Hasta 10 usuarios extra por tienda</li>
+                    </ul>
+                </div>
+
+                <div class="addon-card">
+                    <div class="addon-icon">🏪</div>
+                    <h3>Tienda Adicional</h3>
+                    <div class="addon-price">$299<span style="font-size: 18px; color: var(--gray);">/mes</span></div>
+                    <p>Expande tu negocio a más ubicaciones</p>
+                    <ul style="list-style: none; margin-top: 15px; color: var(--gray);">
+                        <li>✓ Inventario independiente</li>
+                        <li>✓ 3 usuarios incluidos (Básico)</li>
+                        <li>✓ 5 usuarios incluidos (Pro)</li>
+                        <li>✓ Reportes por tienda</li>
+                        <li>✓ Máximo 5 tiendas totales</li>
+                    </ul>
                 </div>
             </div>
 
-            <h3>📋 Características Detalladas</h3>
-
-            <h3>Gestión de Productos</h3>
-            <ul>
-                <li>Registro de productos con clave única</li>
-                <li>Control de precios de compra y venta</li>
-                <li>Seguimiento de stock en tiempo real</li>
-                <li>Búsqueda y filtrado avanzado</li>
-                <li>Ordenamiento por diferentes criterios</li>
-                <li>Alertas de productos con bajo stock</li>
-                <li>Exportación de inventario completo</li>
-            </ul>
-
-            <h3>Sistema de Ventas</h3>
-            <ul>
-                <li>Búsqueda de productos por clave o nombre</li>
-                <li>Carrito de compras con modificación de cantidades</li>
-                <li>Validación automática de stock disponible</li>
-                <li>Cálculo automático de totales y cambio</li>
-                <li>Botón de pago exacto</li>
-                <li>Generación de tickets de venta</li>
-                <li>Descarga de tickets en formato TXT</li>
-            </ul>
-
-            <h3>Gestión de Proveedores</h3>
-            <ul>
-                <li>Registro completo de proveedores</li>
-                <li>Información de contacto (teléfono y email)</li>
-                <li>Dos tipos de programación de visitas:
-                    <ul>
-                        <li>Manual: Fecha específica</li>
-                        <li>Constante: Días programados con frecuencia semanal, quincenal o cada 3 semanas</li>
-                    </ul>
-                </li>
-                <li>Alertas de proveedores con visita el día de hoy</li>
-                <li>Marcado de visitas realizadas</li>
-                <li>Reprogramación automática de próximas visitas</li>
-            </ul>
-
-            <h3>Reportes y Análisis</h3>
-            <ul>
-                <li>Reportes de ventas por diferentes períodos:
-                    <ul>
-                        <li>Día actual</li>
-                        <li>Última semana</li>
-                        <li>Mes actual</li>
-                        <li>Año actual</li>
-                        <li>Fecha específica</li>
-                        <li>Rango de fechas</li>
-                        <li>Mes específico</li>
-                        <li>Año específico</li>
-                    </ul>
-                </li>
-                <li>Gráficos visuales (barras horizontales y pastel)</li>
-                <li>Análisis de costos vs ganancias</li>
-                <li>Ranking de productos más vendidos</li>
-                <li>Descarga de tickets históricos</li>
-                <li>Estadísticas detalladas por producto</li>
-            </ul>
-        </div>
-
-        <!-- Planes de Contratación -->
-<div class="pricing-grid">
-
-    <div class="pricing-card featured">
-        <div class="pricing-badge">RECOMENDADO</div>
-        <h3>Básico</h3>
-        <div class="price">$200<span>/mes</span></div>
-        <ul class="pricing-features">
-            <li>Placeholder</li>
-            <li>Placeholder</li>
-            <li>Placeholder</li>
-            <li>Placeholder</li>
-            <li>Placeholder</li>
-        </ul>
-        <a href="#contacto" class="btn-primary">Contratar</a>
-    </div>
-
-    <div class="pricing-card">
-        <h3>Profesional</h3>
-        <div class="price">$400<span>/mes</span></div>
-        <ul class="pricing-features">
-            <li>Placeholder</li>
-            <li>Placeholder</li>
-            <li>Placeholder</li>
-            <li>Placeholder</li>
-            <li>Placeholder</li>
-        </ul>
-        <a href="#contacto" class="btn-primary">Contratar</a>
-    </div>
-
-</div>
-
-
-        <!-- Contacto -->
-        <div class="card" id="contacto">
-            <h2>📞 Contacto</h2>
-            <p>¿Tienes alguna pregunta o necesitas ayuda? Contáctanos y te responderemos lo antes posible.</p>
-
-
-            <div style="margin-top: 40px; text-align: center;">
-                <h3>Otros Medios de Contacto</h3>
-                <p><strong>Email:</strong> @mitienda.com</p>
-                <p><strong>Teléfono:</strong> +52 56 2774 4203</p>
-                <p><strong>WhatsApp:</strong> +52 56 2774 4203</p>
-                <p><strong>Horario:</strong> Lunes a Viernes, 9:00 AM - 6:00 PM</p>
+            <div style="text-align: center; margin-top: 40px; padding: 30px; background: #f7fafc; border-radius: 12px;">
+                <h3 style="margin-bottom: 15px;">💡 Ejemplo de Precio</h3>
+                <p style="font-size: 18px; color: var(--gray); margin-bottom: 20px;">
+                    <strong>Plan Profesional</strong> + 2 Usuarios Extra + 1 Tienda Extra
+                </p>
+                <div style="font-size: 32px; font-weight: bold; color: var(--primary);">
+                    $799 + $98 + $299 = <span style="color: var(--success);">$1,196/mes</span>
+                </div>
+                <p style="margin-top: 15px; color: var(--gray);">
+                    3 tiendas completas | 12 usuarios totales | Todas las funciones PRO
+                </p>
             </div>
         </div>
+    </section>
 
-        <!-- Términos y Condiciones -->
-        <div class="card" id="terminos">
-            <h2>📜 Términos y Condiciones de Uso</h2>
-            <p><strong>Última actualización:</strong> Enero 2026</p>
-
-            <h3>1. Aceptación de los Términos</h3>
-            <p>Al acceder y utilizar el Sistema de Gestión de Tienda ("el Sistema"), usted acepta estar sujeto a estos Términos y Condiciones de Uso. Si no está de acuerdo con alguna parte de estos términos, no debe utilizar el Sistema.</p>
-
-            <h3>2. Descripción del Servicio</h3>
-            <p>El Sistema es una aplicación web diseñada para la gestión de tiendas, que incluye funcionalidades de control de inventario, ventas, proveedores y reportes. El servicio se proporciona "tal cual" y puede ser modificado o descontinuado en cualquier momento.</p>
-
-            <h3>3. Registro y Cuenta de Usuario</h3>
-            <ul>
-                <li>Es responsable de mantener la confidencialidad de su información de acceso</li>
-                <li>Debe proporcionar información precisa y actualizada durante el registro</li>
-                <li>Es responsable de todas las actividades que ocurran bajo su cuenta</li>
-                <li>Debe notificar inmediatamente cualquier uso no autorizado de su cuenta</li>
-            </ul>
-
-            <h3>4. Uso Aceptable</h3>
-            <p>Usted se compromete a:</p>
-            <ul>
-                <li>Utilizar el Sistema solo para fines legales y legítimos</li>
-                <li>No intentar obtener acceso no autorizado al Sistema</li>
-                <li>No interferir con el funcionamiento del Sistema</li>
-                <li>No utilizar el Sistema para actividades fraudulentas o ilegales</li>
-                <li>Cumplir con todas las leyes y regulaciones aplicables</li>
-            </ul>
-
-            <h3>5. Propiedad Intelectual</h3>
-            <p>Todo el contenido, diseño, código fuente y funcionalidades del Sistema son propiedad exclusiva de Mi Tienda o sus licenciantes. No se concede ningún derecho o licencia sobre la propiedad intelectual excepto el derecho limitado de uso del servicio.</p>
-
-            <h3>6. Datos del Usuario</h3>
-            <ul>
-                <li>Usted mantiene todos los derechos sobre los datos que ingresa en el Sistema</li>
-                <li>Los datos se almacenan localmente en su navegador por defecto</li>
-                <li>Es responsable de realizar copias de seguridad de sus datos</li>
-                <li>No somos responsables de la pérdida de datos por cualquier causa</li>
-            </ul>
-
-            <h3>7. Limitación de Responsabilidad</h3>
-            <p>En ningún caso seremos responsables por daños indirectos, incidentales, especiales o consecuentes derivados del uso o la imposibilidad de uso del Sistema, incluyendo pero no limitado a pérdida de beneficios, interrupción del negocio o pérdida de información.</p>
-
-            <h3>8. Modificaciones del Servicio</h3>
-            <p>Nos reservamos el derecho de modificar o discontinuar el Sistema en cualquier momento, con o sin previo aviso. No seremos responsables ante usted o terceros por cualquier modificación, suspensión o interrupción del servicio.</p>
-
-            <h3>9. Terminación</h3>
-            <p>Podemos terminar o suspender su acceso al Sistema inmediatamente, sin previo aviso, por cualquier razón, incluyendo el incumplimiento de estos Términos y Condiciones.</p>
-
-            <h3>10. Ley Aplicable</h3>
-            <p>Estos términos se rigen por las leyes de México. Cualquier disputa será resuelta en los tribunales competentes de Ciudad de México.</p>
-
-            <h3>11. Modificaciones de los Términos</h3>
-            <p>Nos reservamos el derecho de modificar estos términos en cualquier momento. Las modificaciones entrarán en vigor inmediatamente después de su publicación en el Sistema. Su uso continuado del Sistema constituye la aceptación de los términos modificados.</p>
-
-            <h3>12. Contacto</h3>
-            <p>Para cualquier pregunta sobre estos Términos y Condiciones, por favor contacte a: legal@mitienda.com</p>
-        </div>
-
-        <!-- Políticas de Privacidad -->
-        <div class="card" id="privacidad">
-            <h2>🔒 Políticas de Privacidad</h2>
-            <p><strong>Última actualización:</strong> Enero 2026</p>
-
-            <h3>1. Información que Recopilamos</h3>
+    <!-- Comparison Table -->
+    <section class="comparison" id="comparacion">
+        <div class="container">
+            <h2 class="section-title">Comparación Detallada de Planes</h2>
+            <p class="section-subtitle">Todas las características en un solo lugar</p>
             
-            <h4>1.1 Información que Usted Proporciona</h4>
-            <ul>
-                <li>Información de registro (nombre, email, teléfono)</li>
-                <li>Datos de productos, proveedores y ventas que ingresa en el Sistema</li>
-                <li>Comunicaciones con nuestro equipo de soporte</li>
-            </ul>
-
-            <h4>1.2 Información Recopilada Automáticamente</h4>
-            <ul>
-                <li>Dirección IP y ubicación aproximada</li>
-                <li>Tipo de navegador y sistema operativo</li>
-                <li>Páginas visitadas y tiempo de uso</li>
-                <li>Cookies y tecnologías similares</li>
-            </ul>
-
-            <h3>2. Cómo Utilizamos su Información</h3>
-            <ul>
-                <li>Proporcionar, mantener y mejorar el Sistema</li>
-                <li>Procesar transacciones y gestionar su cuenta</li>
-                <li>Enviar notificaciones técnicas y actualizaciones</li>
-                <li>Responder a sus solicitudes de soporte</li>
-                <li>Analizar el uso del Sistema para mejorarlo</li>
-                <li>Prevenir fraudes y garantizar la seguridad</li>
-                <li>Cumplir con obligaciones legales</li>
-            </ul>
-
-            <h3>3. Almacenamiento de Datos</h3>
-            <p>Por defecto, sus datos se almacenan localmente en su navegador utilizando localStorage. Esto significa que:</p>
-            <ul>
-                <li>Los datos permanecen en su dispositivo</li>
-                <li>No se transmiten automáticamente a nuestros servidores</li>
-                <li>Usted tiene control total sobre sus datos</li>
-                <li>Los datos pueden perderse si limpia el caché del navegador</li>
-            </ul>
-
-            <p>En planes de pago con backup en la nube, sus datos se cifran y almacenan de forma segura en servidores ubicados en México.</p>
-
-            <h3>4. Compartir Información</h3>
-            <p>No vendemos ni alquilamos su información personal a terceros. Podemos compartir información en las siguientes circunstancias:</p>
-            <ul>
-                <li><strong>Proveedores de Servicios:</strong> Con empresas que nos ayudan a operar el Sistema (hosting, análisis, soporte)</li>
-                <li><strong>Cumplimiento Legal:</strong> Cuando sea requerido por ley o para proteger nuestros derechos</li>
-                <li><strong>Transferencias Empresariales:</strong> En caso de fusión, adquisición o venta de activos</li>
-                <li><strong>Con su Consentimiento:</strong> Con su permiso explícito para otros propósitos</li>
-            </ul>
-
-            <h3>5. Seguridad de los Datos</h3>
-            <p>Implementamos medidas de seguridad técnicas y organizativas para proteger su información:</p>
-            <ul>
-                <li>Cifrado SSL/TLS para transmisión de datos</li>
-                <li>Almacenamiento cifrado en servidores seguros</li>
-                <li>Acceso restringido a información personal</li>
-                <li>Monitoreo continuo de seguridad</li>
-                <li>Copias de seguridad regulares</li>
-            </ul>
-
-            <h3>6. Sus Derechos</h3>
-            <p>Usted tiene derecho a:</p>
-            <ul>
-                <li><strong>Acceso:</strong> Solicitar copia de sus datos personales</li>
-                <li><strong>Rectificación:</strong> Corregir datos inexactos o incompletos</li>
-                <li><strong>Eliminación:</strong> Solicitar la eliminación de sus datos</li>
-                <li><strong>Portabilidad:</strong> Recibir sus datos en formato estructurado</li>
-                <li><strong>Oposición:</strong> Oponerse al procesamiento de sus datos</li>
-                <li><strong>Revocación:</strong> Retirar consentimientos previamente otorgados</li>
-            </ul>
-
-            <p>Para ejercer estos derechos, contacte a: privacidad@mitienda.com</p>
-
-            <h3>7. Cookies y Tecnologías Similares</h3>
-            <p>Utilizamos cookies y tecnologías similares para:</p>
-            <ul>
-                <li>Mantener su sesión activa</li>
-                <li>Recordar sus preferencias</li>
-                <li>Analizar el uso del Sistema</li>
-                <li>Mejorar la experiencia del usuario</li>
-            </ul>
-            <p>Puede configurar su navegador para rechazar cookies, aunque esto puede afectar la funcionalidad del Sistema.</p>
-
-            <h3>8. Retención de Datos</h3>
-            <p>Conservamos su información personal durante el tiempo que sea necesario para:</p>
-            <ul>
-                <li>Proporcionar el servicio</li>
-                <li>Cumplir con obligaciones legales</li>
-                <li>Resolver disputas</li>
-                <li>Hacer cumplir nuestros acuerdos</li>
-            </ul>
-
-            <h3>9. Transferencias Internacionales</h3>
-            <p>Sus datos pueden ser transferidos y procesados en países fuera de México. Garantizamos que estas transferencias cumplan con las leyes aplicables de protección de datos.</p>
-
-            <h3>10. Menores de Edad</h3>
-            <p>El Sistema no está dirigido a menores de 18 años. No recopilamos intencionalmente información de menores. Si detectamos datos de un menor, los eliminaremos inmediatamente.</p>
-
-            <h3>11. Cambios en esta Política</h3>
-            <p>Podemos actualizar esta Política de Privacidad periódicamente. Le notificaremos sobre cambios significativos publicando la nueva política en el Sistema y actualizando la fecha de "última actualización".</p>
-
-            <h3>12. Contacto</h3>
-            <p>Para preguntas sobre esta Política de Privacidad o el manejo de sus datos:</p>
-            <ul>
-                <li>Email: @mitienda.com</li>
-                <li>Teléfono: +52 +52 56 2774 4203</li>
-                <li>Dirección: CDMX, México</li>
-            </ul>
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Característica</th>
+                            <th>Prueba</th>
+                            <th>Básico</th>
+                            <th>Profesional</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Precio Mensual</strong></td>
+                            <td>$0</td>
+                            <td><strong>$299</strong></td>
+                            <td><strong>$799</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Tiendas</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td><strong>2</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Usuarios</td>
+                            <td>1</td>
+                            <td>3</td>
+                            <td><strong>10</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Productos</td>
+                            <td>50 máx</td>
+                            <td>Ilimitados</td>
+                            <td>Ilimitados</td>
+                        </tr>
+                        <tr>
+                            <td>Ventas/mes</td>
+                            <td>100</td>
+                            <td>Ilimitadas</td>
+                            <td>Ilimitadas</td>
+                        </tr>
+                        <tr>
+                            <td>Control de Inventario</td>
+                            <td><span class="check-icon">✓</span></td>
+                            <td><span class="check-icon">✓</span></td>
+                            <td><span class="check-icon">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Sistema POS</td>
+                            <td><span class="check-icon">✓</span></td>
+                            <td><span class="check-icon">✓</span></td>
+                            <td><span class="check-icon">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Gestión de Proveedores</td>
+                            <td><span class="check-icon">✓</span></td>
+                            <td><span class="check-icon">✓</span></td>
+                            <td><span class="check-icon">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Reportes Básicos</td>
+                            <td><span class="check-icon">✓</span></td>
+                            <td><span class="check-icon">✓</span></td>
+                            <td><span class="check-icon">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Múltiples Dispositivos</td>
+                            <td><span class="check-icon">✓</span></td>
+                            <td><span class="check-icon">✓</span></td>
+                            <td><span class="check-icon">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Sincronización Tiempo Real</td>
+                            <td><span class="check-icon">✓</span></td>
+                            <td><span class="check-icon">✓</span></td>
+                            <td><span class="check-icon">✓</span></td>
+                        </tr>
+                        <tr style="background: #f7fafc;">
+                            <td><strong>📷 Escáner Códigos Barras</strong></td>
+                            <td><span class="cross-icon">✗</span></td>
+                            <td><span class="cross-icon">✗</span></td>
+                            <td><span class="check-icon">✓</span></td>
+                        </tr>
+                        <tr style="background: #f7fafc;">
+                            <td><strong>📋 Listas Pedidos Proveedor</strong></td>
+                            <td><span class="cross-icon">✗</span></td>
+                            <td><span class="cross-icon">✗</span></td>
+                            <td><span class="check-icon">✓</span></td>
+                        </tr>
+                        <tr style="background: #f7fafc;">
+                            <td><strong>📊 Gráficas Interactivas</strong></td>
+                            <td><span class="cross-icon">✗</span></td>
+                            <td><span class="cross-icon">✗</span></td>
+                            <td><span class="check-icon">✓</span></td>
+                        </tr>
+                        <tr style="background: #f7fafc;">
+                            <td><strong>🏪 Gestión Multi-Tienda</strong></td>
+                            <td><span class="cross-icon">✗</span></td>
+                            <td><span class="cross-icon">✗</span></td>
+                            <td><span class="check-icon">✓</span></td>
+                        </tr>
+                        <tr style="background: #f7fafc;">
+                            <td><strong>🔄 Transferencias Tiendas</strong></td>
+                            <td><span class="cross-icon">✗</span></td>
+                            <td><span class="cross-icon">✗</span></td>
+                            <td><span class="check-icon">✓</span></td>
+                        </tr>
+                        <tr style="background: #f7fafc;">
+                            <td><strong>📈 Reportes Consolidados</strong></td>
+                            <td><span class="cross-icon">✗</span></td>
+                            <td><span class="cross-icon">✗</span></td>
+                            <td><span class="check-icon">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Soporte</td>
+                            <td>Comunidad</td>
+                            <td>Email</td>
+                            <td><strong>Teléfono + Email</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Capacitación</td>
+                            <td>-</td>
+                            <td>Videos</td>
+                            <td><strong>1 sesión/mes en vivo</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
+    </section>
 
-        <!-- Aviso Legal -->
-        <div class="card" id="aviso-legal">
-            <h2>⚖️ Aviso Legal</h2>
-            <p><strong>Última actualización:</strong> Enero 2026</p>
-
-            <h3>1. Información General</h3>
-            <strong>Email:</strong> @mitienda.com<br>
-            <strong>Teléfono:</strong> +52 56 2774 4203</p>
-
-            <h3>2. Objeto</h3>
-            <p>El presente aviso legal regula el uso del sitio web y del Sistema de Gestión de Tienda proporcionado por Mi Tienda S.A. de C.V. El acceso y uso del Sistema implica la aceptación plena de todos los términos incluidos en este aviso legal.</p>
-
-            <h3>3. Condiciones de Uso</h3>
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="section-title">Preguntas Frecuentes</h2>
+            <p class="section-subtitle">Respuestas a las dudas más comunes</p>
             
-            <h4>3.1 Disponibilidad del Servicio</h4>
-            <p>Mi Tienda se esfuerza por mantener el Sistema disponible de forma continua, pero no garantiza la disponibilidad ininterrumpida del servicio. Podemos realizar mantenimientos programados y actualizaciones que pueden afectar temporalmente la disponibilidad.</p>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    ¿Puedo cambiar de plan después?
+                    <span>▼</span>
+                </div>
+                <div class="faq-answer">
+                    Sí, puedes actualizar o degradar tu plan en cualquier momento. Los cambios se aplican inmediatamente y se prorratean según corresponda.
+                </div>
+            </div>
 
-            <h4>3.2 Requisitos Técnicos</h4>
-            <p>Para utilizar el Sistema, necesita:</p>
-            <ul>
-                <li>Navegador web moderno (Chrome, Firefox, Safari, Edge)</li>
-                <li>Conexión a Internet estable</li>
-                <li>JavaScript habilitado</li>
-                <li>Cookies habilitadas</li>
-                <li>Resolución mínima de pantalla: 1024x768</li>
-            </ul>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    ¿Los complementos se pueden comprar sin el Plan Profesional?
+                    <span>▼</span>
+                </div>
+                <div class="faq-answer">
+                    Sí, puedes agregar usuarios o tiendas adicionales a cualquier plan (Básico o Profesional). El precio es el mismo independientemente del plan base.
+                </div>
+            </div>
 
-            <h4>3.3 Contenido del Usuario</h4>
-            <p>El usuario es el único responsable del contenido que ingresa en el Sistema, incluyendo datos de productos, proveedores y ventas. Mi Tienda no revisa ni monitorea el contenido del usuario, pero se reserva el derecho de eliminar contenido que considere inapropiado o ilegal.</p>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    ¿Qué incluye el escáner de códigos?
+                    <span>▼</span>
+                </div>
+                <div class="faq-answer">
+                    El Plan Profesional incluye soporte para escanear códigos de barras tanto desde la cámara de tu celular/tablet como escáneres externos USB o Bluetooth. Compatible con EAN-13, UPC-A, Code 128 y QR.
+                </div>
+            </div>
 
-            <h3>4. Propiedad Intelectual e Industrial</h3>
-            <p>Todos los derechos de propiedad intelectual e industrial del Sistema, incluyendo código fuente, diseño, estructura, contenido y funcionalidades son propiedad exclusiva de Mi Tienda S.A. de C.V. o sus licenciantes.</p>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    ¿Cómo funcionan las listas de pedidos?
+                    <span>▼</span>
+                </div>
+                <div class="faq-answer">
+                    Puedes crear listas predefinidas de productos que compras regularmente a cada proveedor. Al hacer un pedido, seleccionas la lista y el sistema carga automáticamente todos los productos con las cantidades habituales. Ahorras tiempo y evitas olvidos.
+                </div>
+            </div>
 
-            <p>Queda expresamente prohibido:</p>
-            <ul>
-                <li>Reproducir, copiar o modificar el Sistema</li>
-                <li>Realizar ingeniería inversa del código</li>
-                <li>Distribuir o comercializar el Sistema sin autorización</li>
-                <li>Utilizar el contenido con fines comerciales sin permiso</li>
-                <li>Eliminar marcas, logos o avisos de propiedad</li>
-            </ul>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    ¿Necesito contratar tiendas adicionales para tener varias sucursales?
+                    <span>▼</span>
+                </div>
+                <div class="faq-answer">
+                    Sí. Cada ubicación física requiere una "tienda" en el sistema. El Plan Básico incluye 1, el Profesional incluye 2, y puedes agregar hasta 5 tiendas totales con el complemento de $299/mes cada una.
+                </div>
+            </div>
 
-            <h3>5. Exclusión de Garantías y Responsabilidad</h3>
-            
-            <h4>5.1 Garantías</h4>
-            <p>El Sistema se proporciona "tal cual" y "según disponibilidad". Mi Tienda no garantiza:</p>
-            <ul>
-                <li>Que el Sistema esté libre de errores o interrupciones</li>
-                <li>Que los defectos sean corregidos en un tiempo determinado</li>
-                <li>Que el Sistema sea compatible con todo hardware o software</li>
-                <li>Que no existan virus u otros componentes dañinos</li>
-            </ul>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    ¿Hay límite de ventas o productos?
+                    <span>▼</span>
+                </div>
+                <div class="faq-answer">
+                    En el Plan Gratuito hay límites (50 productos, 100 ventas/mes). En los planes pagados (Básico y Profesional) todo es ilimitado.
+                </div>
+            </div>
 
-            <h4>5.2 Limitación de Responsabilidad</h4>
-            <p>Mi Tienda no será responsable por:</p>
-            <ul>
-                <li>Pérdida de datos o información</li>
-                <li>Daños o perjuicios derivados del uso o imposibilidad de uso del Sistema</li>
-                <li>Pérdidas económicas o lucro cesante</li>
-                <li>Daños causados por virus o malware</li>
-                <li>Acciones de terceros o fuerza mayor</li>
-                <li>Interrupciones del servicio de Internet</li>
-            </ul>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    ¿Puedo cancelar cuando quiera?
+                    <span>▼</span>
+                </div>
+                <div class="faq-answer">
+                    Sí, no hay contratos ni penalizaciones. Puedes cancelar tu suscripción en cualquier momento desde tu panel de control. Si pagas anual, te reembolsamos proporcionalmente los meses no usados.
+                </div>
+            </div>
 
-            <h4>5.3 Backups y Seguridad</h4>
-            <p>Es responsabilidad del usuario realizar copias de seguridad regulares de sus datos. Mi Tienda ofrece servicios de backup en planes de pago, pero no garantiza la recuperación al 100% en caso de pérdida de datos.</p>
-
-            <h3>6. Enlaces Externos</h3>
-            <p>El Sistema puede contener enlaces a sitios web de terceros. Mi Tienda no controla ni es responsable del contenido, políticas de privacidad o prácticas de sitios web de terceros.</p>
-
-            <h3>7. Protección de Datos</h3>
-            <p>El tratamiento de datos personales se rige por nuestra Política de Privacidad, que forma parte integral de este aviso legal. Cumplimos con la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.</p>
-
-            <h3>8. Jurisdicción y Ley Aplicable</h3>
-            <p>Este aviso legal se rige por las leyes de México. Para cualquier controversia derivada del uso del Sistema, las partes se someten a los tribunales competentes de Ciudad de México, renunciando expresamente a cualquier otro fuero que pudiera corresponderles.</p>
-
-            <h3>9. Modificaciones</h3>
-            <p>Mi Tienda se reserva el derecho de modificar este aviso legal en cualquier momento. Las modificaciones entrarán en vigor desde su publicación en el Sistema. Se recomienda revisar periódicamente este aviso.</p>
-
-            <h3>10. Duración y Terminación</h3>
-            <p>El acceso al Sistema tiene duración indefinida. Mi Tienda puede dar por terminada, suspender o interrumpir el acceso en cualquier momento, con o sin causa, con o sin previo aviso.</p>
-
-            <h3>11. Nulidad Parcial</h3>
-            <p>Si cualquier disposición de este aviso legal fuera declarada nula o inaplicable, el resto de las disposiciones seguirán siendo válidas y aplicables.</p>
-
-            <h3>12. Idioma</h3>
-            <p>En caso de discrepancia entre la versión en español y cualquier traducción de este aviso legal, prevalecerá la versión en español.</p>
-
-            <h3>13. Contacto Legal</h3>
-            <p>Para cuestiones legales relacionadas con el Sistema:</p>
-            <ul>
-                <li>Email: @mitienda.com</li>
-                <li>Teléfono: +52 56 2774 4203</li>
-                <li>Horario: Lunes a Viernes, 9:00 AM - 6:00 PM</li>
-            </ul>
-
-            <h3>14. Aceptación</h3>
-            <p>El uso del Sistema constituye la aceptación plena y sin reservas de todas las disposiciones incluidas en este aviso legal en la versión publicada en el momento en que el usuario acceda al Sistema.</p>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    ¿Mis datos están seguros?
+                    <span>▼</span>
+                </div>
+                <div class="faq-answer">
+                    Absolutamente. Usamos Firebase de Google con cifrado de extremo a extremo. Tus datos están respaldados automáticamente y solo tú tienes acceso a ellos. Cumplimos con estándares internacionales de seguridad.
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>¿Listo para Transformar tu Negocio?</h2>
+            <p>Únete a más de 100 negocios que ya confían en SaiTeck</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">Comenzar Prueba GRATIS</a>
+                <a href="#" class="btn btn-secondary">Agendar Demo</a>
+            </div>
+            <p style="margin-top: 30px; opacity: 0.8; font-size: 14px;">
+                ✓ Sin tarjeta de crédito  ✓ 14 días gratis  ✓ Cancela cuando quieras
+            </p>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Sistema de Gestión</h4>
-                <ul>
-                    <li><a href="#funcionalidades">Funcionalidades</a></li>
-                    <li><a href="#planes">Planes y Precios</a></li>
-                    <li><a href="index.html">Acceder al Sistema</a></li>
-                    <li><a href="#contacto">Soporte</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>Empresa</h4>
-                <ul>
-                    <li><a href="#inicio">Acerca de Nosotros</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                    <li><a href="#planes">Trabaja con Nosotros</a></li>
-                    <li>Blog</li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>Legal</h4>
-                <ul>
-                    <li><a href="#terminos">Términos y Condiciones</a></li>
-                    <li><a href="#privacidad">Política de Privacidad</a></li>
-                    <li><a href="#aviso-legal">Aviso Legal</a></li>
-                    <li><a href="#contacto">Cookies</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>Contacto</h4>
-                <ul>
-                    <li>📧 @mitienda.com</li>
-                    <li>📞 +52 56 2774 4203</li>
-                    <li>💬 WhatsApp: +52 56 2774 4203</li>
-                    <li>📍 CDMX, México</li>
-                </ul>
-            </div>
+        <div class="footer-links">
+            <a href="#">Términos y Condiciones</a>
+            <a href="#">Política de Privacidad</a>
+            <a href="#">Contacto</a>
+            <a href="#">Soporte</a>
         </div>
-
-        <div class="copyright">
-            <p>&copy; 2026 Mi Tienda S.A. de C.V. Todos los derechos reservados.</p>
-        </div>
+        <p>&copy; 2025 SaiTeck. Todos los derechos reservados.</p>
     </footer>
 
     <script>
-        // Manejo del formulario de contacto
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+        // Toggle Pricing
+        function togglePricing(period) {
+            const monthlyElements = document.querySelectorAll('.monthly-price, .monthly-billing');
+            const annualElements = document.querySelectorAll('.annual-price, .annual-billing');
+            const buttons = document.querySelectorAll('.toggle-btn');
             
-            alert('¡Gracias por tu mensaje!\n\nHemos recibido tu solicitud y nos pondremos en contacto contigo lo antes posible.\n\nTiempo de respuesta estimado: 24-48 horas.');
-            
-            this.reset();
-        });
+            if (period === 'monthly') {
+                monthlyElements.forEach(el => el.style.display = 'block');
+                annualElements.forEach(el => el.style.display = 'none');
+                buttons[0].classList.add('active');
+                buttons[1].classList.remove('active');
+            } else {
+                monthlyElements.forEach(el => el.style.display = 'none');
+                annualElements.forEach(el => el.style.display = 'block');
+                buttons[0].classList.remove('active');
+                buttons[1].classList.add('active');
+            }
+        }
 
-        // Smooth scroll para enlaces internos
+        // Toggle FAQ
+        function toggleFAQ(element) {
+            const faqItem = element.parentElement;
+            const allItems = document.querySelectorAll('.faq-item');
+            
+            allItems.forEach(item => {
+                if (item !== faqItem) {
+                    item.classList.remove('active');
+                }
+            });
+            
+            faqItem.classList.toggle('active');
+        }
+
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
