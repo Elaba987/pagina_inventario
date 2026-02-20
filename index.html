@@ -427,6 +427,68 @@
             font-size: 20px;
         }
 
+        /* Promo Banner */
+        .promo-banner {
+            background: linear-gradient(135deg, #f6ad55 0%, #ed8936 50%, #dd6b20 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .promo-banner::before {
+            content: '🎉';
+            position: absolute;
+            font-size: 120px;
+            opacity: 0.08;
+            left: -20px;
+            top: -20px;
+        }
+
+        .promo-banner::after {
+            content: '🎉';
+            position: absolute;
+            font-size: 120px;
+            opacity: 0.08;
+            right: -20px;
+            bottom: -20px;
+        }
+
+        .promo-title {
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+
+        .promo-headline {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.15);
+        }
+
+        .promo-sub {
+            font-size: 17px;
+            opacity: 0.95;
+            margin-bottom: 18px;
+        }
+
+        .promo-pill {
+            display: inline-block;
+            background: white;
+            color: #dd6b20;
+            font-weight: 800;
+            font-size: 15px;
+            padding: 10px 28px;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            letter-spacing: 0.5px;
+        }
+
         /* FAQ Section */
         .faq {
             padding: 80px 20px;
@@ -612,8 +674,8 @@
             <h1>Controla tu Negocio con Inteligencia</h1>
             <p>El sistema de gestión más completo para tiendas pequeñas y medianas.<br>Inventario, ventas, proveedores y reportes en tiempo real.</p>
             <div class="cta-buttons">
-                <a href="#" class="btn btn-primary">Probar 14 Días GRATIS</a>
-                <a href="#precios" class="btn btn-secondary">Ver Planes</a>
+                <a href="#precios" class="btn btn-primary">Ver Planes y Precios</a>
+                <a href="#" class="btn btn-secondary">Agendar Demo</a>
             </div>
         </div>
     </section>
@@ -664,6 +726,14 @@
         </div>
     </section>
 
+    <!-- Promo Banner -->
+    <section class="promo-banner">
+        <div class="promo-title">⚡ Promoción de Lanzamiento</div>
+        <div class="promo-headline">Compra 3 meses y recibe 3 meses GRATIS</div>
+        <div class="promo-sub">Paga solo 3 meses y úsalo durante 6 meses completos. ¡Disponible por tiempo limitado!</div>
+        <div class="promo-pill">🎁 6 meses al precio de 3</div>
+    </section>
+
     <!-- Pricing Section -->
     <section class="pricing" id="precios">
         <div class="container">
@@ -710,13 +780,9 @@
                         <li class="disabled">Listas de pedidos</li>
                         <li class="disabled">Reportes</li>
                         <li class="disabled">Gráficas</li>
-                        <li class="disabled">Múltiples tiendas</li>
                     </ul>
                     
                     <button class="btn-plan btn-plan-basic">Comenzar Ahora</button>
-                    <p style="text-align: center; margin-top: 15px; color: var(--gray); font-size: 13px;">
-                        ✓ 14 días gratis sin tarjeta
-                    </p>
                 </div>
 
                 <!-- Plan Profesional -->
@@ -736,7 +802,7 @@
                     </div>
                     
                     <ul class="plan-features">
-                        <li><strong>2 Tiendas incluidas</strong></li>
+                        <li><strong>1 Tienda incluida</strong></li>
                         <li><strong>Usuarios ILIMITADOS</strong></li>
                         <li>Productos ilimitados</li>
                         <li>Ventas ilimitadas</li>
@@ -745,18 +811,11 @@
                         <li><strong>📋 Listas de pedidos por proveedor</strong></li>
                         <li><strong>📊 Reportes completos</strong></li>
                         <li><strong>📈 Gráficas de análisis</strong></li>
-                        <li><strong>🏪 Gestión multi-tienda</strong></li>
-                        <li><strong>📊 Reportes consolidados</strong></li>
-                        <li><strong>⚡ Análisis comparativo de tiendas</strong></li>
                         <li><strong>🎯 Soporte técnico prioritario</strong></li>
                         <li><strong>🎓 Videos de capacitación completos</strong></li>
-                        <li><strong>🚀 Actualizaciones anticipadas</strong></li>
                     </ul>
                     
                     <button class="btn-plan btn-plan-pro">Elegir Profesional</button>
-                    <p style="text-align: center; margin-top: 15px; color: white; font-size: 13px;">
-                        ✓ 14 días gratis sin tarjeta
-                    </p>
                 </div>
             </div>
         </div>
@@ -784,13 +843,13 @@
                     </ul>
                 </div>
 
-                <div class="addon-card">
+                <div class="addon-card" style="opacity: 0.75; position: relative;">
+                    <div style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 4px 14px; border-radius: 20px; font-size: 12px; font-weight: bold;">PRÓXIMAMENTE</div>
                     <div class="addon-icon">🏪</div>
                     <h3>Tienda Adicional</h3>
-                    <div class="addon-price">$249<span style="font-size: 18px; color: var(--gray);">/mes</span></div>
+                    <div class="addon-price" style="font-size: 22px; color: var(--gray);">Disponible pronto</div>
                     <p>Expande tu negocio a más ubicaciones</p>
                     <ul style="list-style: none; margin-top: 15px; color: var(--gray);">
-                        <li>✓ Para cualquier plan</li>
                         <li>✓ Inventario independiente</li>
                         <li>✓ 2 usuarios (Plan Básico)</li>
                         <li>✓ Ilimitados (Plan Pro)</li>
@@ -803,16 +862,16 @@
             <div style="text-align: center; margin-top: 40px; padding: 30px; background: #f7fafc; border-radius: 12px;">
                 <h3 style="margin-bottom: 15px;">💡 Ejemplo de Precio</h3>
                 <p style="font-size: 18px; color: var(--gray); margin-bottom: 20px;">
-                    <strong>Plan Profesional</strong> + 1 Tienda Extra
+                    <strong>Plan Básico</strong> + 2 Usuarios Adicionales
                 </p>
                 <div style="font-size: 32px; font-weight: bold; color: var(--primary);">
-                    $449 + $249 = <span style="color: var(--success);">$698/mes</span>
+                    $249 + $98 = <span style="color: var(--success);">$347/mes</span>
                 </div>
                 <p style="margin-top: 15px; color: var(--gray);">
-                    3 tiendas completas | Usuarios ilimitados | Todas las funciones PRO
+                    1 tienda | 4 usuarios | Inventario y ventas ilimitadas
                 </p>
                 <p style="margin-top: 10px; font-size: 14px; color: var(--gray);">
-                    O para Plan Básico: <strong>$249 + $49 (usuario extra) = $298/mes</strong> para 1 tienda con 3 usuarios
+                    ¿Necesitas más tiendas? La función de <strong>tiendas adicionales estará disponible próximamente</strong>.
                 </p>
             </div>
         </div>
@@ -847,7 +906,7 @@
                         <tr>
                             <td>Tiendas</td>
                             <td>1</td>
-                            <td><strong>2</strong></td>
+                            <td>1</td>
                         </tr>
                         <tr>
                             <td>Usuarios</td>
@@ -917,17 +976,17 @@
                         <tr style="background: #f7fafc;">
                             <td><strong>🏪 Gestión Multi-Tienda</strong></td>
                             <td><span class="cross-icon">✗</span></td>
-                            <td><span class="check-icon">✓</span></td>
+                            <td style="color: var(--gray); font-style: italic;">🔜 Próximamente</td>
                         </tr>
                         <tr style="background: #f7fafc;">
                             <td><strong>📊 Reportes Consolidados</strong></td>
                             <td><span class="cross-icon">✗</span></td>
-                            <td><span class="check-icon">✓</span></td>
+                            <td style="color: var(--gray); font-style: italic;">🔜 Próximamente</td>
                         </tr>
                         <tr style="background: #f7fafc;">
                             <td><strong>⚡ Análisis Comparativo Tiendas</strong></td>
                             <td><span class="cross-icon">✗</span></td>
-                            <td><span class="check-icon">✓</span></td>
+                            <td style="color: var(--gray); font-style: italic;">🔜 Próximamente</td>
                         </tr>
                         <tr>
                             <td>Soporte Técnico</td>
@@ -942,7 +1001,7 @@
                         <tr>
                             <td>Actualizaciones</td>
                             <td>Estándar</td>
-                            <td><strong>Anticipadas</strong></td>
+                            <td>Estándar</td>
                         </tr>
                         <tr>
                             <td><strong>Usuarios Adicionales</strong></td>
@@ -951,13 +1010,11 @@
                         </tr>
                         <tr>
                             <td><strong>Tiendas Adicionales</strong></td>
-                            <td>$249/tienda</td>
-                            <td>$249/tienda</td>
+                            <td colspan="2" style="text-align: center; color: var(--gray); font-style: italic;">🔜 Próximamente</td>
                         </tr>
                         <tr>
                             <td><strong>Límite de Tiendas</strong></td>
-                            <td>Sin límite</td>
-                            <td>Sin límite</td>
+                            <td colspan="2" style="text-align: center; color: var(--gray); font-style: italic;">🔜 Próximamente</td>
                         </tr>
                     </tbody>
                 </table>
@@ -987,7 +1044,7 @@
                     <span>▼</span>
                 </div>
                 <div class="faq-answer">
-                    Los usuarios adicionales solo se pueden agregar al Plan Básico ($49/usuario). El Plan Profesional ya incluye usuarios ilimitados. Las tiendas adicionales se pueden agregar a cualquier plan por $249/mes cada una.
+                    Los usuarios adicionales solo se pueden agregar al Plan Básico ($49/usuario). El Plan Profesional ya incluye usuarios ilimitados. La posibilidad de agregar tiendas adicionales estará disponible próximamente.
                 </div>
             </div>
 
@@ -1017,7 +1074,7 @@
                     <span>▼</span>
                 </div>
                 <div class="faq-answer">
-                    El Plan Básico incluye 1 tienda con 2 usuarios. Puedes agregar usuarios adicionales por $49/mes sin límite. El Plan Profesional incluye 2 tiendas con usuarios ILIMITADOS. Ambos planes pueden agregar tiendas adicionales por $249/mes sin límite total.
+                    El Plan Básico incluye 1 tienda con 2 usuarios. Puedes agregar usuarios adicionales por $49/mes sin límite. El Plan Profesional incluye 1 tienda con usuarios ILIMITADOS. La función de tiendas adicionales para ambos planes estará disponible próximamente.
                 </div>
             </div>
 
@@ -1057,7 +1114,7 @@
                     <span>▼</span>
                 </div>
                 <div class="faq-answer">
-                    El Plan Básico NO incluye reportes. El Plan Profesional incluye reportes completos (diario, semanal, mensual, anual, por fechas específicas), gráficas de análisis (barras y pastel), y reportes consolidados cuando tienes múltiples tiendas.
+                    El Plan Básico NO incluye reportes. El Plan Profesional incluye reportes completos (diario, semanal, mensual, anual, por fechas específicas) y gráficas de análisis (barras y pastel).
                 </div>
             </div>
         </div>
@@ -1069,11 +1126,11 @@
             <h2>¿Listo para Transformar tu Negocio?</h2>
             <p>Únete a más de 100 negocios que ya confían en SaiTeck</p>
             <div class="cta-buttons">
-                <a href="#" class="btn btn-primary">Comenzar Prueba GRATIS</a>
+                <a href="#precios" class="btn btn-primary">Ver Planes</a>
                 <a href="#" class="btn btn-secondary">Agendar Demo</a>
             </div>
-            <p style="margin-top: 30px; opacity: 0.8; font-size: 14px;">
-                ✓ Sin tarjeta de crédito  ✓ 14 días gratis  ✓ Cancela cuando quieras
+            <p style="margin-top: 30px; opacity: 0.9; font-size: 15px; font-weight: 600;">
+                🎁 Promoción de lanzamiento: compra 3 meses y recibe 3 meses GRATIS
             </p>
         </div>
     </section>
@@ -1086,7 +1143,7 @@
             <a href="#">Contacto</a>
             <a href="#">Soporte</a>
         </div>
-        <p>&copy; 2025 SaiTeck. Todos los derechos reservados.</p>
+        <p>&copy; 2026 SaiTeck. Todos los derechos reservados.</p>
     </footer>
 
     <script>
