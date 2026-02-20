@@ -489,6 +489,65 @@
             letter-spacing: 0.5px;
         }
 
+        /* Contact Section */
+        .contact {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            border: 2px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: var(--dark);
+            display: block;
+        }
+
+        .contact-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+        }
+
+        .contact-icon {
+            font-size: 42px;
+            margin-bottom: 14px;
+        }
+
+        .contact-card h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+
+        .contact-card p {
+            color: var(--gray);
+            font-size: 15px;
+        }
+
+        .contact-card .contact-label {
+            display: inline-block;
+            margin-top: 12px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
         /* FAQ Section */
         .faq {
             padding: 80px 20px;
@@ -664,6 +723,7 @@
                 <a href="#precios">Precios</a>
                 <a href="#comparacion">Comparación</a>
                 <a href="#faq">FAQ</a>
+                <a href="#contacto">Contacto</a>
             </div>
         </nav>
     </header>
@@ -674,8 +734,8 @@
             <h1>Controla tu Negocio con Inteligencia</h1>
             <p>El sistema de gestión más completo para tiendas pequeñas y medianas.<br>Inventario, ventas, proveedores y reportes en tiempo real.</p>
             <div class="cta-buttons">
-                <a href="#precios" class="btn btn-primary">Ver Planes y Precios</a>
-                <a href="#" class="btn btn-secondary">Agendar Demo</a>
+                <a href="#contacto" class="btn btn-primary">Ver Planes y Precios</a>
+                <a href="#contacto" class="btn btn-secondary">Agendar Demo</a>
             </div>
         </div>
     </section>
@@ -751,16 +811,16 @@
                     <div class="badge">IDEAL PARA EMPEZAR</div>
                     <div class="plan-name">Plan Básico</div>
                     <div class="plan-price monthly-price">
-                        $249
+                        $239
                         <span>/mes</span>
                     </div>
                     <div class="plan-price annual-price" style="display: none;">
-                        $2,690
+                        $2,581
                         <span>/año</span>
                     </div>
                     <div class="plan-billing monthly-billing">Facturado mensualmente</div>
                     <div class="plan-billing annual-billing" style="display: none;">
-                        <div class="savings">✨ Ahorras $298 al año (10% descuento)</div>
+                        <div class="savings">✨ Ahorras $287 al año (10% descuento)</div>
                     </div>
                     
                     <ul class="plan-features">
@@ -782,28 +842,28 @@
                         <li class="disabled">Gráficas</li>
                     </ul>
                     
-                    <button class="btn-plan btn-plan-basic">Comenzar Ahora</button>
+                    <button class="btn-plan btn-plan-basic" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Comenzar Ahora</button>
                 </div>
 
                 <!-- Plan Profesional -->
                 <div class="pricing-card featured">
                     <div class="plan-name">Plan Profesional</div>
                     <div class="plan-price monthly-price">
-                        $449
+                        $429
                         <span>/mes</span>
                     </div>
                     <div class="plan-price annual-price" style="display: none;">
-                        $4,840
+                        $4,633
                         <span>/año</span>
                     </div>
                     <div class="plan-billing monthly-billing">Facturado mensualmente</div>
                     <div class="plan-billing annual-billing" style="display: none;">
-                        <div class="savings">✨ Ahorras $548 al año (10% descuento)</div>
+                        <div class="savings">✨ Ahorras $515 al año (10% descuento)</div>
                     </div>
                     
                     <ul class="plan-features">
                         <li><strong>1 Tienda incluida</strong></li>
-                        <li><strong>Usuarios ILIMITADOS</strong></li>
+                        <li><strong>Usuarios: 5 incluidos</strong></li>
                         <li>Productos ilimitados</li>
                         <li>Ventas ilimitadas</li>
                         <li>Todo del Plan Básico +</li>
@@ -815,7 +875,7 @@
                         <li><strong>🎓 Videos de capacitación completos</strong></li>
                     </ul>
                     
-                    <button class="btn-plan btn-plan-pro">Elegir Profesional</button>
+                    <button class="btn-plan btn-plan-pro" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Elegir Profesional</button>
                 </div>
             </div>
         </div>
@@ -834,8 +894,8 @@
                     <div class="addon-price">$49<span style="font-size: 18px; color: var(--gray);">/mes</span></div>
                     <p>Agrega empleados extra al Plan Básico</p>
                     <ul style="list-style: none; margin-top: 15px; color: var(--gray);">
-                        <li>✓ Solo para Plan Básico</li>
-                        <li>✓ Plan Pro tiene ilimitados</li>
+                        <li>✓ Solo para Plan Básico o Pro</li>
+                        <li>✓ Plan Pro incluye 5 usuarios</li>
                         <li>✓ Permisos personalizables</li>
                         <li>✓ PIN de seguridad propio</li>
                         <li>✓ Acceso multi-dispositivo</li>
@@ -865,7 +925,7 @@
                     <strong>Plan Básico</strong> + 2 Usuarios Adicionales
                 </p>
                 <div style="font-size: 32px; font-weight: bold; color: var(--primary);">
-                    $249 + $98 = <span style="color: var(--success);">$347/mes</span>
+                    $239 + $98 = <span style="color: var(--success);">$337/mes</span>
                 </div>
                 <p style="margin-top: 15px; color: var(--gray);">
                     1 tienda | 4 usuarios | Inventario y ventas ilimitadas
@@ -895,13 +955,13 @@
                     <tbody>
                         <tr>
                             <td><strong>Precio Mensual</strong></td>
-                            <td><strong>$249</strong></td>
-                            <td><strong>$449</strong></td>
+                            <td><strong>$239</strong></td>
+                            <td><strong>$429</strong></td>
                         </tr>
                         <tr>
                             <td><strong>Precio Anual (10% desc)</strong></td>
-                            <td><strong>$2,690</strong></td>
-                            <td><strong>$4,840</strong></td>
+                            <td><strong>$2,581</strong></td>
+                            <td><strong>$4,633</strong></td>
                         </tr>
                         <tr>
                             <td>Tiendas</td>
@@ -911,7 +971,7 @@
                         <tr>
                             <td>Usuarios</td>
                             <td>2 (admin + empleado)</td>
-                            <td><strong>ILIMITADOS</strong></td>
+                            <td><strong>5 incluidos</strong></td>
                         </tr>
                         <tr>
                             <td>Productos</td>
@@ -1126,12 +1186,50 @@
             <h2>¿Listo para Transformar tu Negocio?</h2>
             <p>Únete a más de 100 negocios que ya confían en SaiTeck</p>
             <div class="cta-buttons">
-                <a href="#precios" class="btn btn-primary">Ver Planes</a>
-                <a href="#" class="btn btn-secondary">Agendar Demo</a>
+                <a href="#contacto" class="btn btn-primary">Ver Planes</a>
+                <a href="#contacto" class="btn btn-secondary">Agendar Demo</a>
             </div>
             <p style="margin-top: 30px; opacity: 0.9; font-size: 15px; font-weight: 600;">
                 🎁 Promoción de lanzamiento: compra 3 meses y recibe 3 meses GRATIS
             </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <h2 class="section-title">Contáctanos</h2>
+            <p class="section-subtitle">Estamos aquí para ayudarte. Elige el canal que prefieras.</p>
+
+            <div class="contact-grid">
+                <a href="tel:+000000000" class="contact-card">
+                    <div class="contact-icon">📞</div>
+                    <h3>Teléfono</h3>
+                    <p>+00 (000) 000-0000</p>
+                    <span class="contact-label">Llamar</span>
+                </a>
+
+                <a href="https://wa.me/000000000" target="_blank" class="contact-card">
+                    <div class="contact-icon">💬</div>
+                    <h3>WhatsApp</h3>
+                    <p>+00 (000) 000-0000</p>
+                    <span class="contact-label">Escribir</span>
+                </a>
+
+                <a href="mailto:contacto@saiteck.com" class="contact-card">
+                    <div class="contact-icon">✉️</div>
+                    <h3>Correo</h3>
+                    <p>contacto@saiteck.com</p>
+                    <span class="contact-label">Enviar email</span>
+                </a>
+
+                <a href="https://facebook.com/saiteck" target="_blank" class="contact-card">
+                    <div class="contact-icon">📘</div>
+                    <h3>Facebook</h3>
+                    <p>@SaiTeck</p>
+                    <span class="contact-label">Ver página</span>
+                </a>
+            </div>
         </div>
     </section>
 
